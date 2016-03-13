@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+<beans    
+    xmlns="http://www.springframework.org/schema/beans"    
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"    
+    xmlns:p="http://www.springframework.org/schema/p"    
+    xmlns:context="http://www.springframework.org/schema/context"    
+    xmlns:mvc="http://www.springframework.org/schema/mvc"    
+    xsi:schemaLocation="http://www.springframework.org/schema/beans    
+                        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd    
+                        http://www.springframework.org/schema/context    
+                        http://www.springframework.org/schema/context/spring-context-2.5.xsd    
+                        http://www.springframework.org/schema/mvc    
+                        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">    
+        <property name="prefix">
+            <value>/WEB-INF/jsp/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+        <property name="order" value="0" />  
+    </bean>
+    
+   
+    
+    
+    <mvc:interceptors>
+    	<mvc:interceptor>
+        	<mvc:mapping path="/edit/**/" />
+        	<bean class="com.wutadove.interceptor.RefererInterceptor" />
+    	</mvc:interceptor>
+    	<mvc:interceptor>
+        	<mvc:mapping path="/**" />
+        	<bean class="com.wutadove.interceptor.WWWInterceptor" />
+    	</mvc:interceptor>
+	</mvc:interceptors>
+	
+	
+    
+    <context:component-scan base-package="com.wutadove.controller" />
+    <mvc:annotation-driven />
+    
+    
+    
+</beans>  

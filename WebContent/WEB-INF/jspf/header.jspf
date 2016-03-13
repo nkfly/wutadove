@@ -1,0 +1,72 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<header id="header">
+	<div style="width:1024px;margin-left:auto;margin-right:auto;">
+    <a href="/"><img src="/img/logo.png" class="logo"></a>
+    <div id="origin" class="header-item header-hover">緣起</div>
+    <div id="announcement" class="box grey_out" style="height:250px;" >
+    	<div class="info">
+    		<div class="close">×</div>
+    		<p id="announcement-text" class="info-content" style="color:red;font-size:20px;">          	
+        	</p>
+    	</div>
+    </div>
+    <div id="origin-info" class="box grey_out">
+      <div class="info">
+      	<div class="close">×</div>
+        <ul class="tablist" role="tablist">
+          <li id="belief-tab" class="tab-focus" role="tab">理念</li>
+          <li id="how-tab" role="tab">使用</li>
+          <li id="member-tab" role="tab">成員</li>
+        </ul>
+        <p id="origin-belief" class="info-content">
+          	<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fwutadove&amp;width=170px&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;header=false&amp;stream=false&amp;show_border=false&amp;appId=491270377673854" scrolling="no" frameborder="0" style="vertical-align:middle;border:none; overflow:hidden; width:170px; height:60px;" allowTransparency="true"></iframe>的含義是日文歌學日文，因為在日文中，「歌」（うた）的發音是屋塔，而「勉強」（べんきょう）這個表示學習的字，發音則近似斑鳩。
+          <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;除了音譯上的意義，意境上屋塔斑鳩就是一隻喜歡待在屋塔上，快樂唱著日文歌的小鳥，希望大家都能跟著屋塔斑鳩一起唱歌，學日文！
+          <br/>
+        </p>
+        <p style="display:none" id="origin-how" class="info-content">
+        	<iframe style="width:100%;height:260px;display:block;" frameborder="0" 
+		  	allowfullscreen="1" src="https://www.youtube.com/embed/AH6FeEX1cBc?enablejsapi=1&rel=0&iv_load_policy=3&showinfo=0&wmode=opaque"></iframe>
+          	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;當聽到自己喜愛的動漫的主題曲，或是某首深受感動的日文歌時，是否有衝動想分享給他人，甚至希望別人一同領略這日文歌詞的美妙？
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;這時，只要那首歌有在 Youtube 上，就可以藉由屋塔斑鳩的搜尋，輸入關鍵字或那首歌的Youtube網址，找到那首歌並進入編輯介面。
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在編輯介面中，有一個視覺化的波型圖方便選取歌曲中有歌詞的區段，也有自動比對日文句子文法、自動斷詞、自動標音、自動查字典的功能。所以只需要<br />
+          1. 選取與編輯出每一句的日文歌詞及其翻譯<br />
+          2. 修改自動比對出來錯誤的單字、標音及翻譯<br />
+          3. 選出正確的文法<br />
+          4. 按下發佈<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;這樣子大家就可以一起快樂聽歌學日文囉！                    
+        </p>
+        <div style="display:none;" id="origin-member" class="info-content">
+          <div style="text-indent:0px;text-align:center;float:left;margin-left:40px;" class="member-block">
+            <img src="/img/liyuan-head.png" class="member-image">
+            <div><h2 style="color: #6e2f00;">洪立遠</h2>
+            	<p >台大資工所碩一</p>
+            	<p >創辦人</p>
+            </div>
+          </div>
+          <div style="text-indent:0px;text-align:center;float:right;margin-right:40px;" class="member-block">
+            <img src="/img/poning-head.png" class="member-image">
+            <div><h2 style="color: #6e2f00;">曾柏寧</h2>
+            	<p >台大資工四</p>
+            	<p >共同創辦人</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <input id="keyin" type="text" name="url" value="${q}">
+    <input id="keyin-submit" type="submit" value="Search" class="submit">
+    <div id="screen" class="grey_out close"></div>
+    <c:choose>
+    	<c:when test="${sessionScope.user != null}">
+       		<jsp:include page="/WEB-INF/jsp/account.jsp" />
+    	</c:when>
+    	<c:otherwise>
+        	<jsp:include page="/WEB-INF/jsp/login.jsp" />
+    	</c:otherwise>
+	</c:choose>    
+	</div>
+  </header>
